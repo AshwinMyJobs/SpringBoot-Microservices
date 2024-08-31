@@ -5,12 +5,15 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.eam.dto.Message;
@@ -28,7 +31,7 @@ public class EmployeeController {
 	EmployeeService employeeService;
 	
 	@GetMapping("/hello")
-	public String sayHelloMethod() {
+	public Message sayHelloMethod() {
 
         // Logging various log level messages 
         logger.trace("Log level: TRACE"); 
@@ -37,12 +40,13 @@ public class EmployeeController {
         logger.error("Log level: ERROR"); 
         logger.warn("Log level: WARN"); 
 		
-		return "Hello from employee controller service";
+		return new Message("Hello from employee controller service");
+		
 	}
 	
 	@PostMapping("/hello")
-	public Message sayHelloPostMethod(@RequestBody Employee employee) {
-		logger.info("Say Hello post method......");
+	public Message saveEmployee(@RequestBody Employee employee) {
+		logger.info("Say Hello post method......" + employee.toString());
         // Logging various log level messages 
         logger.trace("Log level: TRACE"); 
         logger.info("Log level: INFO"); 
@@ -66,9 +70,9 @@ public class EmployeeController {
 	}
 	
 	@GetMapping("/getAllEmployees")
-	public List<Employee> getAllEmployees(){
+	public ResponseEntity<List<Employee>> getAllEmployees(){
 		logger.info(" getAllEmployees called");
-		return employeeService.getAllemployees();
+		return (ResponseEntity<List<Employee>>) employeeService.getAllemployees();
 	}
 	
 	@GetMapping("/getEmployeeByEmail/{emailid}")

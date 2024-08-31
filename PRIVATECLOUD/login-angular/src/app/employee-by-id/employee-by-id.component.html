@@ -1,0 +1,33 @@
+<div class="container">
+    <h2 class="text-center">Login User</h2>
+    <form (ngSubmit)="getAllEmployees()">
+      <div class="form-group">
+        <label for="empid">EmployeeID</label>
+        <input type="text" class="form-control" id="empid" [(ngModel)]="empid" name="empid">
+      </div>
+      <button class="btn btn-success mt-2" type="submit">Submit</button>
+    </form>
+    <div>
+        {{data}}
+    </div>
+    <!-- <div>
+        <table class="table" id='tab'>
+            <thead>
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Position</th>
+                    <th scope="col">Office</th>
+                    <th scope="col">Salary</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let e of li;">
+                    <td>{{ e.firstName }}</td>
+                    <td>{{ e.lastName }}</td>
+                    <td>{{ e.emailid}}</td>
+                    <td>{{ e.empid}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div> -->
+  </div>

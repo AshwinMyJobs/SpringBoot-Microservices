@@ -11,7 +11,12 @@ spring:
           uri: http://localhost:8080
           predicates:
             - Path=/employee/**, /attendance/**, /department/**, /empDept/**
-            
+
+        - id: FARMERSHUB-PROFILE
+          uri: http://localhost:8080
+          predicates:
+            - Path=/profile/**
+
         - id: LOGIN-SERVICE
           uri: http://localhost:9090
           predicates:
