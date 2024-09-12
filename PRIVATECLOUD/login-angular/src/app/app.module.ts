@@ -11,11 +11,15 @@ import { RouterModule, Routes } from '@angular/router';
 import { EmptyError } from 'rxjs';
 import { EmployeeComponent } from './employee/employee.component';
 import { EmployeeByIdComponent } from './employee-by-id/employee-by-id.component';
+import { AssignEmpDeptComponent } from './employee/assign-emp-dept/assign-emp-dept.component';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { MatSelectModule } from '@angular/material/select';
 
 const routes: Routes = [
   { path: 'Login', component: LoginComponent },
   { path: 'Employee', component: EmployeeComponent },
-  { path: 'EmployeeByID', component: EmployeeByIdComponent }
+  { path: 'EmployeeByID', component: EmployeeByIdComponent },
+  { path: 'EmpDept', component: AssignEmpDeptComponent}
 
 ];
 
@@ -24,7 +28,8 @@ const routes: Routes = [
     AppComponent,
     LoginComponent,
     EmployeeComponent,
-    EmployeeByIdComponent
+    EmployeeByIdComponent,
+    AssignEmpDeptComponent
   ],
   imports: [
     BrowserModule,
@@ -32,9 +37,12 @@ const routes: Routes = [
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    MatSelectModule
   ],
-  providers: [],
+  providers: [
+    provideAnimationsAsync()
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

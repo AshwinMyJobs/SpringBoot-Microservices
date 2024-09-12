@@ -1,6 +1,6 @@
 <div class="container">
     <h2 class="text-center">Login User</h2>
-    <form (ngSubmit)="getAllEmployees()">
+    <form (ngSubmit)="getEmployeeDetails()">
       <div class="form-group">
         <label for="empid">EmployeeID</label>
         <input type="text" class="form-control" id="empid" [(ngModel)]="empid" name="empid">
@@ -8,9 +8,6 @@
       <button class="btn btn-success mt-2" type="submit">Submit</button>
     </form>
     <div>
-        {{data}}
-    </div>
-    <!-- <div>
         <table class="table" id='tab'>
             <thead>
                 <tr>
@@ -21,7 +18,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let e of li;">
+                <tr *ngFor="let e of data;">
                     <td>{{ e.firstName }}</td>
                     <td>{{ e.lastName }}</td>
                     <td>{{ e.emailid}}</td>
@@ -29,5 +26,5 @@
                 </tr>
             </tbody>
         </table>
-    </div> -->
+    </div>
   </div>

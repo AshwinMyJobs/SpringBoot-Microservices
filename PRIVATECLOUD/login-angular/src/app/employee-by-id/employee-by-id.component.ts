@@ -9,8 +9,6 @@ import { SessionService } from '../services/session.service';
   styleUrl: './employee-by-id.component.css'
 })
 export class EmployeeByIdComponent {
-  
-  public data: any;
 
   lis = [];
 
@@ -25,13 +23,25 @@ export class EmployeeByIdComponent {
     data: Employee;
   }
 
+  getEmployeeDetails(){
+    if(this.empid!=null)
+      this.getEmployeeById();
+    else
+      this.getAllEmployees();
+  }
+
+  public data: any;
   getEmployeeById(){
-    this.userService.getEmployeeByID(this.empid).subscribe((results)=>{console.log(results);this.data=results;this.handleView()});
+    console.log("getEmployeeById() method is called.......");
+    this.userService.getEmployeeByID(this.empid).subscribe((res)=>{this.data=res;console.log(res);});
   }
 
   getAllEmployees(){
-    this.userService.getAllEmployees().subscribe((res)=>console.log(res));
+    console.log("getAllEmployees() method is called.......");
+    this.userService.getAllEmployees().subscribe((res)=>{this.data=res;console.log(res)});
   }
+
+
   handleView(){
     this.data.firstName = "";
   }

@@ -13,7 +13,8 @@ export class Userservice {
   private saveEmployeeURL = "http://localhost:8001/employee/saveEmployee";
   private sayHello = "http://localhost:8001/employee/saveEmployee";
   private getEmpByID = "http://localhost:8001/employee/getEmployeeById/";
-  private getAllEmp = "http://localhost:8001/employee/getEmployees";
+  private getAllEmp = "http://localhost:8001/employee/getAllEmployees";
+  private getAllDepartmentsList = "http://localhost:8001/department/listAllDepartments";
 
   constructor(private httpClient :HttpClient) { }
 
@@ -26,14 +27,19 @@ export class Userservice {
   }
 
   getEmployeeByID(empid: number):Observable<Object>{
+    console.log("UserService.getEmployeeByID is called with empid : " + empid);
     return this.httpClient.get(`${this.getEmpByID}`+empid);
   }
 
   getAllEmployees():Observable<Object>{
-    return this.httpClient.get(`${this.getAllEmployees}`);
+    return this.httpClient.get(`${this.getAllEmp}`);
   }
 
   sayHelloMethod(employee: Employee):Observable<Object>{
     return this.httpClient.post(`${this.sayHello}`, employee);
+  }
+
+  getAllDepartments():Observable<Object>{
+    return this.httpClient.get(`${this.getAllDepartmentsList}`);
   }
 }

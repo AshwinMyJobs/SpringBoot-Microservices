@@ -1,5 +1,6 @@
 package com.eam.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -64,15 +65,19 @@ public class EmployeeController {
 	}
 	
 	@GetMapping(value = "/getEmployeeById/{id}")
-	public Employee getEmployeeById(@PathVariable("id") Long id) {
+	public ResponseEntity<List<Employee>> getEmployeeById(@PathVariable("id") Long id) {
 		logger.info("id : " +id);
-		return employeeService.getEmployeeById(id);
+		Employee employee = employeeService.getEmployeeById(id);
+		List<Employee> employeesList = new ArrayList<>();
+		employeesList.add(employee);
+		return new ResponseEntity<List<Employee>>(employeesList, HttpStatus.OK);
 	}
 	
 	@GetMapping("/getAllEmployees")
 	public ResponseEntity<List<Employee>> getAllEmployees(){
 		logger.info(" getAllEmployees called");
-		return (ResponseEntity<List<Employee>>) employeeService.getAllemployees();
+		List<Employee> employeesList = employeeService.getAllemployees();
+		return new ResponseEntity<List<Employee>>(employeesList, HttpStatus.OK);
 	}
 	
 	@GetMapping("/getEmployeeByEmail/{emailid}")
