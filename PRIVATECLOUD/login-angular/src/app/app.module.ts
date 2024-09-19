@@ -14,12 +14,14 @@ import { EmployeeByIdComponent } from './employee-by-id/employee-by-id.component
 import { AssignEmpDeptComponent } from './employee/assign-emp-dept/assign-emp-dept.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { MatSelectModule } from '@angular/material/select';
+import { RegisterEmployeeComponent } from './employee/register-employee/register-employee.component';
 
 const routes: Routes = [
   { path: 'Login', component: LoginComponent },
   { path: 'Employee', component: EmployeeComponent },
   { path: 'EmployeeByID', component: EmployeeByIdComponent },
-  { path: 'EmpDept', component: AssignEmpDeptComponent}
+  { path: 'EmpDept', component: AssignEmpDeptComponent},
+  { path: 'RegisterEmployee', component: RegisterEmployeeComponent}
 
 ];
 
@@ -29,7 +31,8 @@ const routes: Routes = [
     LoginComponent,
     EmployeeComponent,
     EmployeeByIdComponent,
-    AssignEmpDeptComponent
+    AssignEmpDeptComponent,
+    RegisterEmployeeComponent
   ],
   imports: [
     BrowserModule,

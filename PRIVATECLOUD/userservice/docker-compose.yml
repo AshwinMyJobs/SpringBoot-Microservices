@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  app:
+    build: .
+    ports:
+      - "8080:8080"
+    environment:
+      MYSQL_HOST: springboot-test
+      MYSQL_USER: root
+      MYSQL_PASSWORD: KingsClub@123
+      MYSQL_DATABASE: privatecloud
+
+  mysqldb:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: KingsClub@123
+    ports:
+      - "3308:3306"

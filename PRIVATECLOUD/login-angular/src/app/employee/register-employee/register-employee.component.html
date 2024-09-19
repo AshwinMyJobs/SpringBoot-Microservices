@@ -1,0 +1,35 @@
+<div class="container">
+    <h2 class="text-center">Login User</h2>
+    <form (ngSubmit)="registerEmployee()">
+      <div class="form-group">
+        <label for="firstName">firstName</label>
+        <input type="text" class="form-control" id="firstName" [(ngModel)]="employee.firstName" name="firstName">
+      </div>
+      <div class="form-group">
+        <label for="lastName">lastName</label>
+        <input type="text" class="form-control" id="lastName" [(ngModel)]="employee.lastName" name="lastName">
+      </div>
+      <div class="form-group">
+        <label for="emailid">emailid    </label>
+        <input type="text" class="form-control" id="emailid" [(ngModel)]="employee.emailid" name="emailid">
+      </div>
+      <div class="form-group">
+        <label for="address">address </label>
+        <input type="text" class="form-control" id="address" [(ngModel)]="employee.address" name="address">
+      </div>
+      <div class="form-group">
+        <label for="mobileno">mobileno    </label>
+        <input type="text" class="form-control" id="mobileno" [(ngModel)]="employee.mobileno" name="mobileno">
+      </div>
+      <div class="form-group">
+        <label for="userName">userName </label>
+        <input type="text" class="form-control" id="userName" [(ngModel)]="employee.userName" name="userName">
+      </div>
+      <div class="form-group">
+        <label for="passWord">passWord    </label>
+        <input type="password" class="form-control" id="passWord" [(ngModel)]="employee.passWord" name="passWord">
+      </div>
+      <button class="btn btn-success mt-2" type="submit">Save</button>
+    </form>
+    <div></div>
+  </div>

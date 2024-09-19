@@ -55,18 +55,13 @@ public class LoginController {
 
 	@PostMapping("/authenticate")
 	public ResponseEntity<Message> authenticateAndGetToken(@RequestBody UserInfo userInfo) {
-
 		try {
 			Authentication authentication = authenticationManager
 					.authenticate(new UsernamePasswordAuthenticationToken(userInfo.getName(), userInfo.getPassword()));
 			SecurityContextHolder.getContext().setAuthentication(authentication);
 		} catch (Exception e) {
-			return new ResponseEntity((new Message("Invalid Username or Passsword")), HttpStatus.OK);
+			return new ResponseEntity<Message>((new Message("Invalid Username or Passsword")), HttpStatus.OK);
 		}
-
-		return new ResponseEntity((new Message(jwtService.generateToken(userInfo.getName()))), HttpStatus.OK);
-		
-		//return new Message(jwtService.generateToken(userInfo.getName()).toString());
-
+		return new ResponseEntity<Message>((new Message(jwtService.generateToken(userInfo.getName()))), HttpStatus.OK);
 	}
 }
